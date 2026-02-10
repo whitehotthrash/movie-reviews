@@ -14,7 +14,7 @@ app.use(cors(
 app.use(express.json())
 
 app.use("/api/v1/movies", movies)
-app.use('/./', (request, response) => {
+app.use('/./', (request, response) => { // using regex because wildcard * was invalid
   response.status(404).json({error: "not found"})
 })
 
