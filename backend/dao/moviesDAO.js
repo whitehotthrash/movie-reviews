@@ -13,6 +13,7 @@ export default class MoviesDAO {
     }
   }
 
+  // retrieve movies from database
   static async getMovies({
     filters = null,
     page = 0,
