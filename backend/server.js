@@ -4,7 +4,7 @@ import movies from './api/movies.route.js'
 
 const app = express()
 
-app.use(cors(
+app.use(cors( // keep for workaround
 //   {
 //   origin: '*',
 //   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -13,7 +13,7 @@ app.use(cors(
 ))
 app.use(express.json())
 
-app.use("/api/v1/movies", movies)
+app.use("/api/v1/movies", movies) // TODO: refactor
 app.use('/./', (request, response) => { // using regex because wildcard * was invalid
   response.status(404).json({error: "not found"})
 })

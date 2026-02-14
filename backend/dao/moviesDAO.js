@@ -1,3 +1,5 @@
+// Data Access Object
+
 let movies;
 
 export default class MoviesDAO {
