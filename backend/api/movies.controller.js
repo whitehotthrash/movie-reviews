@@ -1,0 +1,32 @@
+import MoviesDAO from "../dao/moviesDAO.js";
+
+export default class MoviesController {
+  static async apiGetMovies(request, response, next) {
+    const moviesPerPage = request.query.moviesPerPage
+      ? parseInt(request.query.moviesPerPage)
+      : 20;
+    const page = request.query.page ? parseInt(request.query.page) : 0;
+
+    let filters = {};
+    if (request.query.rated) {
+      filters.rated = request.query.rated;
+    } else if (request.query.title) {
+      filters.title = request.query.title;
+    }
+
+    const { moviesList, totalNumMovies } = await MoviesDAO.getMovies({
+      filters,
+      page,
+      moviesPerPage,
+    });
+
+    let response = {
+      movies: moviesList,
+      page: page,
+      filters: filters,
+      entries_per_page: moviesPerPage,
+      total_results: totalNumMovies,
+    };
+    response.json(response);
+  }
+}
