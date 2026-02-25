@@ -1,9 +1,10 @@
 import express from "express";
+import MoviesController from "./movies.controller.js"
 
 const router = express.Router(); // get access to express router
 
 // GET
-router.route("/").get((request, response) => response.send("hello world"));
+router.route("/").get(MoviesController.apiGetMovies);
 
 // POST
 
