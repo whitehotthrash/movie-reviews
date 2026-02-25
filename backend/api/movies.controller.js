@@ -20,13 +20,13 @@ export default class MoviesController {
       moviesPerPage,
     });
 
-    let response = {
+    let responseObj = {
       movies: moviesList,
       page: page,
       filters: filters,
       entries_per_page: moviesPerPage,
       total_results: totalNumMovies,
     };
-    response.json(response);
+    response.json(responseObj);
   }
 }
