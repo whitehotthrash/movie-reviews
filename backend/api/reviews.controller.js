@@ -51,4 +51,16 @@ export default class ReviewsController {
       response.status(500).json({ error: e.message });
     }
   }
+
+  // DELETE request to delete review
+  static async apiDeleteReview(request, response, next) {
+    try {
+      const reviewId = request.body.review_id;
+      const userId = request.body.user_id;
+      const ReviewResponse = await ReviewsDAO.deleteReview(reviewId, userId);
+      response.json({ status: "Success" });
+    } catch (e) {
+      response.status(500).json({ error: e.message });
+    }
+  }
 }
