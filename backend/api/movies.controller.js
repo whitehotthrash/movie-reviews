@@ -29,4 +29,33 @@ export default class MoviesController {
     };
     response.json(responseObj);
   }
+
+  static async apiGetMovieById(request, response, next) {
+    try {
+      // look for id param
+      let id = request.params.id || {};
+      let movie = await MoviesDAO.GetMovieById(id);
+
+      // if movie doesn't exist
+      if (!movie) {
+        response.status(404).json({ error: "not found" });
+        return;
+      }
+
+      response.json(movie);
+    } catch (e) {
+      console.log(`api, ${e}`);
+      response.status(500).json({ error: e });
+    }
+  }
+
+  static async apiGetRating(request, response, next) {
+    try {
+      let propertyTypes = await MoviesDAO.getRatings();
+      response.json(propertyTypes);
+    } catch (e) {
+      console.log(`api, ${e}`);
+      response.status(500).json({ error: e });
+    }
+  }
 }
