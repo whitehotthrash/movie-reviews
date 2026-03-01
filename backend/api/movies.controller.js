@@ -49,7 +49,7 @@ export default class MoviesController {
     }
   }
 
-  static async apiGetRating(request, response, next) {
+  static async apiGetRatings(request, response, next) {
     try {
       let propertyTypes = await MoviesDAO.getRatings();
       response.json(propertyTypes);
