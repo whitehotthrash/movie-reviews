@@ -1,5 +1,9 @@
 // Data access object
 
+import mongodb from "mongodb";
+// import { ObjectId } from "mongodb";
+const ObjectId = mongodb.ObjectId;
+
 let reviews;
 
 export default class ReviewsDAO {
