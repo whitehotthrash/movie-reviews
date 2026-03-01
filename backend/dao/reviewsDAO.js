@@ -43,12 +43,12 @@ export default class ReviewsDAO {
     // update review via controller
     try {
       const updateResponse = await reviews.updateOne(
-        {user_id: userId, _id:ObjectId(reviewId)},
-        {$set:{review: review, date: date}}
-      )
-      return updateResponse
+        { user_id: userId, _id: ObjectId(reviewId) },
+        { $set: { review: review, date: date } },
+      );
+      return updateResponse;
     } catch (e) {
-      console.error(`Unable to update review: ${e}`)
+      console.error(`Unable to update review: ${e}`);
     }
   }
 
@@ -58,10 +58,10 @@ export default class ReviewsDAO {
       const deleteResponse = await reviews.deleteOne({
         _id: ObjectId(reviewId),
         user_id: userId,
-      })
+      });
     } catch (e) {
-      console.error(`Unable to delete review: ${e}`)
-      return { error: e }
+      console.error(`Unable to delete review: ${e}`);
+      return { error: e };
     }
   }
 }
