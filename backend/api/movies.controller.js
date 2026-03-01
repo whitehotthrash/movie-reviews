@@ -34,7 +34,7 @@ export default class MoviesController {
     try {
       // look for id param
       let id = request.params.id || {};
-      let movie = await MoviesDAO.GetMovieById(id);
+      let movie = await MoviesDAO.getMovieById(id);
 
       // if movie doesn't exist
       if (!movie) {
