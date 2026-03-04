@@ -44,6 +44,22 @@ function App() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+
+      <Switch>
+        <Route exact path={["/", "/movies"]} component={MoviesList}></Route>
+        <Route
+          path="/movies/:id/review"
+          render={(props) => <AddReview {...props} user={user} />}
+        ></Route>
+        <Route
+          path="/movies/:id/"
+          render={(props) => <Movie {...props} user={user} />}
+        ></Route>
+        <Route
+          path="/login"
+          render={(props) => <Login {...props} login={login} />}
+        ></Route>
+      </Switch>
     </div>
   );
 }
