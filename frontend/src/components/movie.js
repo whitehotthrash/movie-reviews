@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Movie() {
+export function Movie() {
   return (
     <div className="App">
       Movie
@@ -8,4 +8,4 @@ function Movie() {
   );
 }
 
-export default Movie;
+//export default Movie;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AddReview() {
+export function AddReview() {
   return (
     <div className="App">
       Add Review
@@ -8,4 +8,4 @@ function AddReview() {
   );
 }
 
-export default AddReview;
+//export default AddReview;

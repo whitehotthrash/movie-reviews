@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Login() {
+export function Login() {
   return (
     <div className="App">
       Login
@@ -8,4 +8,4 @@ function Login() {
   );
 }
 
-export default Login;
+// export default Login;

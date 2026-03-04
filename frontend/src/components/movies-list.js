@@ -1,6 +1,6 @@
 import React from 'react'
 
-function MoviesList() {
+export function MoviesList() {
   return (
     <div className="App">
       Movie's List
@@ -8,4 +8,4 @@ function MoviesList() {
   );
 }
 
-export default MoviesList;
+// export default MoviesList;
