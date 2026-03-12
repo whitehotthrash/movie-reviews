@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 import MovieDataService from "../services/movies";
 import Form from "react-bootstrap/Form";
@@ -20,42 +20,42 @@ const AddReview = ({ user }) => {
   const editing = Boolean(location.state?.currentReview);
 
   const onChangeReview = (e) => {
-    const review = e.target.value; // reassign for readability
-    setReview(review);
+    setReview(e.target.value);
   };
 
   const saveReview = () => {
     if (!user) return;
 
-    const data = {
-      review: review,
-      name: user.name,
-      user_id: user.id,
-      movie_id: id, // using id from useParams()
-    };
-
     if (editing) {
-      // get existing review id
-      const reviewId = location.state.currentReview._id;
-      data.review_id = reviewId;
+      // if editing, use review_id, otherwise use movie_id to create review
+      // preventing ambiguity with payload
+      const data = {
+        review_id: location.state.currentReview._id,
+        review: review,
+        user_id: user.id,
+        name: user.name,
+      };
 
       MovieDataService.updateReview(data)
-        .then((response) => {
+        .then(() => {
           setSubmitted(true);
           navigate(`/movies/${id}`);
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch((e) => console.log(e));
     } else {
+      const data = {
+        movie_id: id,  // using id from useParams()
+        review: review,
+        user_id: user.id,
+        name: user.name,
+      };
+
       MovieDataService.createReview(data)
-        .then((response) => {
+        .then(() => {
           setSubmitted(true);
           navigate(`/movies/${id}`);
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch((e) => console.log(e));
     }
   };
 

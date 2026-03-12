@@ -8,10 +8,9 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import { useParams } from "react-router-dom";
-//import Media from "react-bootstrap/Media"; this is deprecated
 
 const Movie = (props) => {
-  const { id } = useParams(); // replacing props.match.params.id
+  const { id } = useParams();
 
   const [movie, setMovie] = useState({
     id: null,
@@ -85,5 +84,5 @@ const Movie = (props) => {
     </div>
   );
 };
-// TODO: find a better way to export
+
 export default Movie;
