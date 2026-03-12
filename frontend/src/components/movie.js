@@ -34,7 +34,7 @@ const Movie = (props) => {
     if (!id) return;
     getMovie(id);
   }, [id]);
-
+// TODO: move custom styling to .css, refactor
   return (
     <div style={{ paddingTop: "6%" }}>
       <Container>

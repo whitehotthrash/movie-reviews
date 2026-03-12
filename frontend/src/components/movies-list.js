@@ -80,7 +80,7 @@ const MoviesList = (props) => {
       find(searchRating, "rated");
     }
   };
-
+// TODO: move custom styling to .css, remove unused props 
   return (
     <div className="App" style={{ paddingTop: "6%"}}>
       <Container>

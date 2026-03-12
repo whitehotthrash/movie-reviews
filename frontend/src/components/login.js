@@ -24,7 +24,8 @@ const Login = (props) => {
     props.login({ name: name, id: id });
     navigate("/"); // navigate to home after login
   };
-
+// TODO: refactor, no unused vars
+// TODO: fix return/ enter key freezing webpage
   return (
     <>
       <Form style={{ paddingTop: "6%"}}>

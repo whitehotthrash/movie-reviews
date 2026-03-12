@@ -4,7 +4,7 @@ import MovieDataService from "../services/movies";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-const AddReview = ({ user }) => {
+const AddReview = ({ user }) => { // access user directly, instead of passing all props
   const { id } = useParams(); // movie id from the URL
   const location = useLocation(); // for passing current review if editing
   const navigate = useNavigate();

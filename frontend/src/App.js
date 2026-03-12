@@ -21,7 +21,7 @@ function App() {
   async function logout() {
     setUser(null);
   }
-
+  // TODO: move custom styling to .css and refactor, no unused vars
   return (
     <div className="App">
       <Navbar bg="light" expand="lg" style={{ position: "fixed", width: "100vw", zIndex: 999 }}>
