@@ -34,6 +34,22 @@ const Movie = (props) => {
     if (!id) return;
     getMovie(id);
   }, [id]);
+
+const deleteReview = (reviewId, index) => {
+  if (!props.user) return; // make sure user is logged in
+
+  MovieDataService.deleteReview(reviewId, props.user.id)
+    .then(() => {
+      setMovie((prevState) => ({
+        ...prevState,
+        reviews: prevState.reviews.filter((_, i) => i !== index), // create new array
+      }));
+    })
+    .catch((e) => {
+      console.log("An error happened", e);
+    });
+};
+
 // TODO: move custom styling to .css, refactor
   return (
     <div style={{ paddingTop: "6%" }}>
@@ -71,7 +87,7 @@ const Movie = (props) => {
                         </Link>
                       </Col>
                       <Col>
-                        <Button variant="link">Delete</Button>
+                        <Button variant="link" onClick={() => deleteReview(review._id, index)}>Delete</Button>
                       </Col>
                     </Row>
                   )}
