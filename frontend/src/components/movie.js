@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 
-const Movie = (props) => {
+const Movie = (props) => { // this could be more explicit
   const { id } = useParams();
 
   const [movie, setMovie] = useState({

@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
-const Login = (props) => {
+const Login = (props) => { // this could be more explicit
   // name and id setters
   const [name, setName] = useState("");
   const [id, setId] = useState("");
