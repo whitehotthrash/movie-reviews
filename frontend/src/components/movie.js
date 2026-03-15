@@ -37,7 +37,7 @@ const Movie = (props) => { // this could be more explicit
 const deleteReview = (reviewId, index) => {
   if (!props.user) return; // make sure user is logged in
 
-  MovieDataService.deleteReview(reviewId, props.user.id)
+  MovieDataService.deleteReview(reviewId, props.user.id) // make user id explicit
     .then(() => {
       setMovie((prevState) => ({
         ...prevState,
